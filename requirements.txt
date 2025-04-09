@@ -1,0 +1,10 @@
+fqdn
+isoduration
+jsonpointer
+jupyter
+pip-chill
+scikit-learn
+seaborn
+tinycss2
+uri-template
+webcolors
