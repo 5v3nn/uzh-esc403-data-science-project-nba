@@ -21,8 +21,6 @@ metrics and financial investment.
    and loosing teams?
 3. Temporal trends: How has the game evolved over the years? Can we
    differentiate the data into eras of how the game was played?
-   - [ts_team_analysis](./ts_team_analysis.ipynb)
-   - [ts_team_prediction](./ts_team_prediction.ipynb)
 4. Financial influence: Is there a correlation between the teams expenditure on
    the roster and team success? Does the salary cap affect long-term success?
 5. Game outcome prediction: Can box scores predict which team will win? Can we
@@ -78,6 +76,35 @@ for below in the *Procedure* section.
 
 [winning_teams](./winning_teams.ipynb)
 - 
+
+
+### Temporal Analysis 
+
+[ts_team_analysis](./ts_team_analysis.ipynb)
+- Using the default team statistics dataset
+  - Seasonal decomposing: First of `teamScore` and then other features
+  - Trying ARIMA on that 
+- Using normalized data set
+  - Seasonal decompose of "as-is"
+  - Then uniform time stamps, since we do not care about the the time in the
+    off-season for our precictions (index which only keeps order, not time
+    between the games)
+    - Still not clear trend
+  - Analyze major rule changes to see if there are epochs
+    - Seasonal decompose each epoch, fitting trend with linear regression in
+      order to find out if rule changes had an effect on or changed the trend
+
+
+[ts_team_prediction](./ts_team_prediction.ipynb)
+- With uniform time index again: ARIMA for `teamScore`, `teamScore_decomposed`
+  (`teamScore`, but removed the variance and error), `teamScore_rollingmean`
+  - Try to make forecast on those, but not really successful
+- Forecast of `teamScore`, but only use a limited time-span (e.g. last 5
+  years), because for the current prediction in 2025, the 1980 games are
+  objectively not relevant anymore
+  - Works better (predicts trend, but not fluctuations)
+- **Conclusion**: Hard to impossible to accurately predict the score, just
+  based on the previous scores.
 
 
 ## Run Code
