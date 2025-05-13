@@ -17,7 +17,6 @@ metrics and financial investment.
 ## Research Questions and Analytical Objectives
 
 1. Home-court advantage: Does home-court advantage exist and how large is it?
-   - [home_court_advantage](./home_court_advantage.ipynb)
 2. Winning vs loosing: Can we identify statistical differences between winning
    and loosing teams?
    - [winning_teams](./winning_teams.ipynb)
@@ -29,6 +28,10 @@ metrics and financial investment.
    the roster and team success? Does the salary cap affect long-term success?
 5. Game outcome prediction: Can box scores predict which team will win? Can we
    use the temporal trends to predict a winning team?
+
+
+Each question is discussed in more detail with what each file is responsible
+for below in the *Procedure* section.
 
 
 ## Data Source and Description 
@@ -52,6 +55,24 @@ metrics and financial investment.
    - [clean_data](./clean_data.ipynb)
 2. Answering the research questions (see above)
 3. Cleanup and presentation
+
+
+### Home-Court Advantage 
+
+[home_court_advantage](./home_court_advantage.ipynb)
+- Does the home team win more often than the away team?
+- Do the referees call fewer fouls on the home team (i.e. the home team gets
+  more free throws than the away team)?
+- If the home team wins, does it win by a larger margin than if the away team
+  wins?
+- Does the home team score on a higher percentage (FG%, FT%, 3P%) than the away
+  team?
+- **Conclusion**:
+  - Home team does win with a higher percentage than the away team.
+  - Home teams do have better statistics in all categories, though we cannot
+    conculde yet if it is significant.
+  - The home team does win more often.
+  - The home team does not get the same amount of fouls as the away team. 
 
 
 ## Run Code
