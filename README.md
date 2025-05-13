@@ -19,7 +19,6 @@ metrics and financial investment.
 1. Home-court advantage: Does home-court advantage exist and how large is it?
 2. Winning vs loosing: Can we identify statistical differences between winning
    and loosing teams?
-   - [winning_teams](./winning_teams.ipynb)
 3. Temporal trends: How has the game evolved over the years? Can we
    differentiate the data into eras of how the game was played?
    - [ts_team_analysis](./ts_team_analysis.ipynb)
@@ -73,6 +72,12 @@ for below in the *Procedure* section.
     conculde yet if it is significant.
   - The home team does win more often.
   - The home team does not get the same amount of fouls as the away team. 
+  
+  
+### Winning Teams
+
+[winning_teams](./winning_teams.ipynb)
+- 
 
 
 ## Run Code
