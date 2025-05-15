@@ -47,9 +47,12 @@ for below in the *Procedure* section.
 1. Get data and clean data to do EDA and create dataset we can use for
    subsequent analysis
    - [get_data](./get_data.ipynb)
+      - Makes calls to the NBA API to obtain player and team statistics.
    - [clean_data](./clean_data.ipynb)
    - [clean_team_data](./clean_team_data.ipynb)
-   - [clean_data](./clean_data.ipynb)
+      - Cleans the team statistics, mostly by removing NA rows and useless rows.
+      - Only selecting Regular Season games
+      - DISCONTINUED due to the fact we swapped from the Kaggle Dataset to the NBA API
 2. Answering the research questions (see above)
 3. Cleanup and presentation
 
@@ -75,7 +78,11 @@ for below in the *Procedure* section.
 ### Winning Teams
 
 [winning_teams](./winning_teams.ipynb)
-- 
+- Identify important features on normalized box-score statistics
+   - Almost half of the columns could be eliminated due to multicollinearity
+- Defensive Rebounds & True Shooting % the key variables to predict the current game's win.
+   - We think, Defensive Rebounds is the only defensive metric that can directly measure how well the opponent shoots (More rebounds if they shoot poorly)
+   - True Shooting represents most of the offensive efficiency  
 
 
 ### Temporal Analysis 
@@ -105,6 +112,14 @@ for below in the *Procedure* section.
   - Works better (predicts trend, but not fluctuations)
 - **Conclusion**: Hard to impossible to accurately predict the score, just
   based on the previous scores.
+
+### Win Prediction Modeling
+
+[windowed_stats](./windowed_stats.ipynb)
+- Create and save windowed rolling statistics so that we can predict future games from the previous averages. For example, if the window size is 5, for each game entry it maintains for each box score statistics the teams and opponent teams the previous 5 game averages.
+[prediction](./prediction.ipynb)
+- Build Prediction Models to predict whether a team wins a specific game. Used Logistic Regression, Random Forest, XGBoost, Catboost, LightGBM, and Gaussian Naive Bayes as well as an ensemble model of all mentioned models.
+- We achieved a best test accuracy of 64.5% with the Logistic Regression Model. Put into perspectice, this is not too bad because there is an upset rate of 22-36% depending on whose odds and model you choose, so a perfect model can achieve 64-78% accuracy. We have only used team statistics and whether a team plays at home, so it is a fairly basic model.
 
 
 ## Run Code
