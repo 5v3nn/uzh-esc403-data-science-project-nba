@@ -19,11 +19,12 @@ metrics and financial investment.
 1. Home-court advantage: Does home-court advantage exist and how large is it?
 2. Winning vs loosing: Can we identify statistical differences between winning
    and loosing teams?
-3. Temporal trends: How has the game evolved over the years? Can we
+3. Player Impact: How much does a single player contribute to the overall success of their team?
+4. Temporal trends: How has the game evolved over the years? Can we
    differentiate the data into eras of how the game was played?
-4. Financial influence: Is there a correlation between the teams expenditure on
+5. Financial influence: Is there a correlation between the teams expenditure on
    the roster and team success? Does the salary cap affect long-term success?
-5. Game outcome prediction: Can box scores predict which team will win? Can we
+6. Game outcome prediction: Can box scores predict which team will win? Can we
    use the temporal trends to predict a winning team?
 
 
