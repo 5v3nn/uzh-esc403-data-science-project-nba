@@ -53,6 +53,11 @@ for below in the *Procedure* section.
       - Cleans the team statistics, mostly by removing NA rows and useless rows.
       - Only selecting Regular Season games
       - DISCONTINUED due to the fact we swapped from the Kaggle Dataset to the NBA API
+   - [clean_player_data](./clean_player_data.ipynb)
+      - Cleans raw player statistics from the Kaggle dataset (`PlayerStatistics.csv`)
+      - Applies data corrections such as swapped field goals and free throws
+      - Corrects shooting percentages and removes invalid rows (e.g. >6 personal fouls)
+      - Retained for early analysis steps; main modeling later uses NBA API data
 2. Answering the research questions (see above)
 3. Cleanup and presentation
 
