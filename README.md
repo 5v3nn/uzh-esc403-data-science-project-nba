@@ -19,11 +19,12 @@ metrics and financial investment.
 1. Home-court advantage: Does home-court advantage exist and how large is it?
 2. Winning vs loosing: Can we identify statistical differences between winning
    and loosing teams?
-3. Temporal trends: How has the game evolved over the years? Can we
+3. Player Impact: How much does a single player contribute to the overall success of their team?
+4. Temporal trends: How has the game evolved over the years? Can we
    differentiate the data into eras of how the game was played?
-4. Financial influence: Is there a correlation between the teams expenditure on
+5. Financial influence: Is there a correlation between the teams expenditure on
    the roster and team success? Does the salary cap affect long-term success?
-5. Game outcome prediction: Can box scores predict which team will win? Can we
+6. Game outcome prediction: Can box scores predict which team will win? Can we
    use the temporal trends to predict a winning team?
 
 
@@ -53,6 +54,11 @@ for below in the *Procedure* section.
       - Cleans the team statistics, mostly by removing NA rows and useless rows.
       - Only selecting Regular Season games
       - DISCONTINUED due to the fact we swapped from the Kaggle Dataset to the NBA API
+   - [clean_player_data](./clean_player_data.ipynb)
+      - Cleans raw player statistics from the Kaggle dataset (`PlayerStatistics.csv`)
+      - Applies data corrections such as swapped field goals and free throws
+      - Corrects shooting percentages and removes invalid rows (e.g. >6 personal fouls)
+      - Retained for early analysis steps; main modeling later uses NBA API data
 2. Answering the research questions (see above)
 3. Cleanup and presentation
 
@@ -82,7 +88,20 @@ for below in the *Procedure* section.
    - Almost half of the columns could be eliminated due to multicollinearity
 - Defensive Rebounds & True Shooting % the key variables to predict the current game's win.
    - We think, Defensive Rebounds is the only defensive metric that can directly measure how well the opponent shoots (More rebounds if they shoot poorly)
-   - True Shooting represents most of the offensive efficiency  
+   - True Shooting represents most of the offensive efficiency
+
+
+### Player Impact
+
+[player_impact](./player_impact.ipynb)
+- Begins with identifying key performance indicators from the player dataset and normalizes them by minutes played to provide a first contextual baseline
+- after that we transition to a more refined possession-based normalization using player_statistics_v2.csv for improved comparability across game pace and team roles
+- The core analysis is structured around three research questions:
+   - Identify high-impact players based on performance indicators (e.g., net impact per possession, efficiency stats)
+   - Explore how individual metrics correlate with overall team success
+   - Investigate whether standout performances in single games (top 10% z-scores) are associated with higher win probability
+- Includes regression analysis, correlation plots, and ranking of consistently high-impact players based on a composite score
+- Key takeaway: Sustained individual performance has a measurable link to winning, but isolated standout games appear to have little predictive value —> emphasizing the importance of overall team structure.
 
 
 ### Temporal Analysis 
